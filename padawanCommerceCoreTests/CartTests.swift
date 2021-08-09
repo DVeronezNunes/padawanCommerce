@@ -7,29 +7,82 @@
 
 import XCTest
 
+class Cart{
+    
+    private(set) var items = [String]()
+    
+    func addProduct(_ product:String)  {
+        items.append(product)
+    }
+    
+    func removeProduct(_ product:String){
+        guard let productToRemoveIndex = items.firstIndex(of: product) else {
+            return
+        }
+        
+        items.remove(at: productToRemoveIndex)
+    }
+}
+
 class CartTests: XCTestCase {
 
-    override class func setUp() {
-        print("Setup da classe")
+    func testCart_addOneProduct_ShouldHaveOneProduct() {
+        //Arrenge
+        let sut = Cart()
+        
+        //Act
+        sut.addProduct("Product 01")
+        
+        //Assert
+        XCTAssertEqual(sut.items.count, 1)
+        XCTAssertEqual(sut.items.first, "Product 01")
+        
     }
     
-    override class func tearDown() {
-        print("Teardown da classe")
-    }
-    
-    override func setUpWithError() throws {
-        print("setUp da instancia")
-    }
+    func testCart_addTwoProducts_ShouldHaveTwoProduct() {
+        //Arrenge
+        let sut = Cart()
+        
+        //Act
+        sut.addProduct("Product 01")
+        sut.addProduct("Product 02")
+        
+        //Assert
+        XCTAssertEqual(sut.items.count, 2)
+        XCTAssertEqual(sut.items.first, "Product 01")
+        XCTAssertEqual(sut.items.last, "Product 02")
 
-    override func tearDownWithError() throws {
-        print("tearDown da instancia")
-    }
-
-    func testOne() {
-        print("Meu teste 001")
     }
     
-    func testTwo() {
-        print("Meu teste 002")
+    func testCart_removeOneProduct_ShouldHaveOneProduct() {
+        //Arrenge
+        let sut = Cart()
+        
+        //Act
+        sut.addProduct("Product 01")
+        sut.addProduct("Product 02")
+        sut.removeProduct("Product 01")
+        
+        //Assert
+        XCTAssertEqual(sut.items.count, 1)
+        XCTAssertEqual(sut.items.first, "Product 02")
+
+    }
+    
+    func testCart_removeOneProduct_ShouldHaveTwoProduct() {
+        //Arrenge
+        let sut = Cart()
+        
+        //Act
+        sut.addProduct("Product 01")
+        sut.addProduct("Product 02")
+        sut.addProduct("Product 02")
+        sut.removeProduct("Product 02")
+        
+        //Assert
+        XCTAssertEqual(sut.items.count, 2)
+        XCTAssertEqual(sut.items.first, "Product 01")
+        XCTAssertEqual(sut.items.last, "Product 02")
+
     }
 }
