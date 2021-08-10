@@ -9,7 +9,11 @@ import XCTest
 
 class Cart{
     
-    private(set) var items = [String]()
+    private(set) var items: [String]
+    
+    init(items: [String]) {
+        self.items = items
+    }
     
     func addProduct(_ product:String)  {
         items.append(product)
@@ -22,13 +26,17 @@ class Cart{
         
         items.remove(at: productToRemoveIndex)
     }
+    
+    func clearCart(){
+        items.removeAll()
+    }
 }
 
 class CartTests: XCTestCase {
 
     func testCart_addOneProduct_ShouldHaveOneProduct() {
         //Arrenge
-        let sut = Cart()
+        let sut = Cart(items: [])
         
         //Act
         sut.addProduct("Product 01")
@@ -41,7 +49,7 @@ class CartTests: XCTestCase {
     
     func testCart_addTwoProducts_ShouldHaveTwoProduct() {
         //Arrenge
-        let sut = Cart()
+        let sut = Cart(item: [])
         
         //Act
         sut.addProduct("Product 01")
@@ -56,7 +64,7 @@ class CartTests: XCTestCase {
     
     func testCart_removeOneProduct_ShouldHaveOneProduct() {
         //Arrenge
-        let sut = Cart()
+        let sut = Cart(item: [])
         
         //Act
         sut.addProduct("Product 01")
@@ -71,7 +79,7 @@ class CartTests: XCTestCase {
     
     func testCart_removeOneProduct_ShouldHaveTwoProduct() {
         //Arrenge
-        let sut = Cart()
+        let sut = Cart(item: [])
         
         //Act
         sut.addProduct("Product 01")
@@ -84,5 +92,18 @@ class CartTests: XCTestCase {
         XCTAssertEqual(sut.items.first, "Product 01")
         XCTAssertEqual(sut.items.last, "Product 02")
 
+    }
+    
+    func testCart_clearAllCart_CarShouldBeEmpty() {
+        //Arrenge
+        let sut = Cart(item: [])
+        
+        //Act
+        sut.addProduct("Product 01")
+        sut.addProduct("Product 02")
+        sut.clearCart()
+        
+        //Assert
+        XCTAssertTrue(sut.items.isEmpty)
     }
 }
