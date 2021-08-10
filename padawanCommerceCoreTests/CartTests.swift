@@ -15,16 +15,16 @@ class Cart{
         self.items = items
     }
     
-    func addProduct(_ product:String)  {
-        items.append(product)
+    func addItem(_ item:String)  {
+        items.append(item)
     }
     
-    func removeProduct(_ product:String){
-        guard let productToRemoveIndex = items.firstIndex(of: product) else {
+    func removeItem(_ item:String){
+        guard let ItemIndex = items.firstIndex(of: item) else {
             return
         }
         
-        items.remove(at: productToRemoveIndex)
+        items.remove(at: ItemIndex)
     }
     
     func clearCart(){
@@ -38,12 +38,12 @@ class CartTests: XCTestCase {
     let item2 = "Item 2"
     let item3 = "Item 3"
     
-    func testCart_addOneProduct_ShouldHaveOneProduct() {
+    func testCart_addOneItem_ShouldHaveOneItem() {
         //Arrenge
         let sut = Cart(items: [])
         
         //Act
-        sut.addProduct(item1)
+        sut.addItem(item1)
         
         //Assert
         XCTAssertEqual(sut.items.count, 1)
@@ -51,13 +51,13 @@ class CartTests: XCTestCase {
         
     }
     
-    func testCart_addTwoProducts_ShouldHaveTwoProduct() {
+    func testCart_addTwoItems_ShouldHaveTwoItem() {
         //Arrenge
         let sut = Cart(items: [])
         
         //Act
-        sut.addProduct(item1)
-        sut.addProduct(item2)
+        sut.addItem(item1)
+        sut.addItem(item2)
         
         //Assert
         XCTAssertEqual(sut.items.count, 2)
@@ -66,12 +66,12 @@ class CartTests: XCTestCase {
 
     }
     
-    func testCart_removeOneProduct_ShouldHaveOneProduct() {
+    func testCart_removeOneItem_ShouldHaveOneItem() {
         //Arrenge
         let sut = Cart(items: [item1, item2])
         
         //Act
-        sut.removeProduct(item1)
+        sut.removeItem(item1)
         
         //Assert
         XCTAssertEqual(sut.items.count, 1)
@@ -79,12 +79,12 @@ class CartTests: XCTestCase {
 
     }
     
-    func testCart_removeOneProduct_ShouldHaveTwoProduct() {
+    func testCart_removeOneItem_ShouldHaveTwoItem() {
         //Arrenge
         let sut = Cart(items: [item1, item2, item3])
         
         //Act
-        sut.removeProduct(item2)
+        sut.removeItem(item2)
         
         //Assert
         XCTAssertEqual(sut.items.count, 2)
