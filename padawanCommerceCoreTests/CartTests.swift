@@ -33,74 +33,71 @@ class Cart{
 }
 
 class CartTests: XCTestCase {
-
+    
+    let item1 = "Item 1"
+    let item2 = "Item 2"
+    let item3 = "Item 3"
+    
     func testCart_addOneProduct_ShouldHaveOneProduct() {
         //Arrenge
         let sut = Cart(items: [])
         
         //Act
-        sut.addProduct("Product 01")
+        sut.addProduct(item1)
         
         //Assert
         XCTAssertEqual(sut.items.count, 1)
-        XCTAssertEqual(sut.items.first, "Product 01")
+        XCTAssertEqual(sut.items.first, item1)
         
     }
     
     func testCart_addTwoProducts_ShouldHaveTwoProduct() {
         //Arrenge
-        let sut = Cart(item: [])
+        let sut = Cart(items: [])
         
         //Act
-        sut.addProduct("Product 01")
-        sut.addProduct("Product 02")
+        sut.addProduct(item1)
+        sut.addProduct(item2)
         
         //Assert
         XCTAssertEqual(sut.items.count, 2)
-        XCTAssertEqual(sut.items.first, "Product 01")
-        XCTAssertEqual(sut.items.last, "Product 02")
+        XCTAssertEqual(sut.items.first, item1)
+        XCTAssertEqual(sut.items.last, item2)
 
     }
     
     func testCart_removeOneProduct_ShouldHaveOneProduct() {
         //Arrenge
-        let sut = Cart(item: [])
+        let sut = Cart(items: [item1, item2])
         
         //Act
-        sut.addProduct("Product 01")
-        sut.addProduct("Product 02")
-        sut.removeProduct("Product 01")
+        sut.removeProduct(item1)
         
         //Assert
         XCTAssertEqual(sut.items.count, 1)
-        XCTAssertEqual(sut.items.first, "Product 02")
+        XCTAssertEqual(sut.items.first, item2)
 
     }
     
     func testCart_removeOneProduct_ShouldHaveTwoProduct() {
         //Arrenge
-        let sut = Cart(item: [])
+        let sut = Cart(items: [item1, item2, item3])
         
         //Act
-        sut.addProduct("Product 01")
-        sut.addProduct("Product 02")
-        sut.addProduct("Product 02")
-        sut.removeProduct("Product 02")
+        sut.removeProduct(item2)
         
         //Assert
         XCTAssertEqual(sut.items.count, 2)
-        XCTAssertEqual(sut.items.first, "Product 01")
-        XCTAssertEqual(sut.items.last, "Product 02")
+        XCTAssertEqual(sut.items.first, item1)
+        XCTAssertEqual(sut.items.last, item3)
 
     }
     
     func testCart_clearAllCart_CarShouldBeEmpty() {
         //Arrenge
-        let sut = Cart(item: [])
+        let sut = Cart(items: [item1, item2])
         
         //Act
-        sut.addProduct("Product 01")
-        sut.addProduct("Product 02")
         sut.clearCart()
         
         //Assert
