@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E872488926C4BA850032B1A8 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872488826C4BA850032B1A8 /* Cart.swift */; };
 		E8F077B226C0C149004AC272 /* padawanCommerceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F077A826C0C149004AC272 /* padawanCommerceCore.framework */; };
 		E8F077C426C0C6CD004AC272 /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F077C326C0C6CD004AC272 /* CartTests.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +23,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E872488826C4BA850032B1A8 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		E8F077A826C0C149004AC272 /* padawanCommerceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = padawanCommerceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F077AC26C0C149004AC272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8F077B126C0C149004AC272 /* padawanCommerceCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = padawanCommerceCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F077AC26C0C149004AC272 /* Info.plist */,
+				E872488826C4BA850032B1A8 /* Cart.swift */,
 			);
 			path = padawanCommerceCore;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				TargetAttributes = {
 					E8F077A726C0C149004AC272 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					E8F077B026C0C149004AC272 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -193,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E872488926C4BA850032B1A8 /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +345,7 @@
 		E8F077BD26C0C149004AC272 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dveroneznunes.padawanCommerceCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +370,7 @@
 		E8F077BE26C0C149004AC272 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -386,6 +394,7 @@
 		E8F077C026C0C149004AC272 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = padawanCommerceCoreTests/Info.plist;
@@ -406,6 +415,7 @@
 		E8F077C126C0C149004AC272 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = padawanCommerceCoreTests/Info.plist;
